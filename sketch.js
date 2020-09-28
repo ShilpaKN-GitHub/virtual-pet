@@ -18,7 +18,7 @@ function setup()
   database = firebase.database();
 
   dog = createSprite(250, 300, 150, 150);
-  dog.addImage("dog", dogImage);
+  dog.addImage(dogImage);
   dog.scale = 0.15;
 
   foodStock = database.ref('Food');
@@ -36,14 +36,14 @@ function draw()
     if(foodValue === 0)
     {
       writeStock(20, false);
-      dog.changeImage("dog", dogImage);
+      dog.addImage(dogImage);
     }
   
     if(keyWentDown(UP_ARROW))
     {
       timer = 2;
       writeStock(foodValue, true);
-      dog.changeImage("happyDog", happyDogImage);
+      dog.addImage(happyDogImage);
     }
 
     /* If the frameCount is divisible by 30,
@@ -55,7 +55,7 @@ function draw()
 
     if (timer == 0)
     {
-      dog.changeImage("dog", dogImage);
+      dog.addImage(dogImage);
     }
 
     drawSprites();
